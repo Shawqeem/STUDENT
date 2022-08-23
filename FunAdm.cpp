@@ -86,11 +86,6 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
                         a.Student::SetId(ID2);
                     }
                 }
-//                for (const Data &a: vdat) {
-//                    cout << a.Student::GetId() << "     " << setiosflags(ios::left) << setw(20) << a.Student::GetName()
-//                         << a.Course::GetId() << "    " << setw(20) << a.Course::GetName() << "     "
-//                         << a.Student::GetGrade() << endl << endl;
-//                }
                 break;
             } else {
                 cout << endl;

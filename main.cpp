@@ -22,9 +22,6 @@ int main() {
     vect_d.push_back(Data(10002, 20001, "C++", "Sanford Huang", 95));
     vect_d.push_back(Data(10003, 20001, "Discrete Mathematics", "Sanford Huang", 100));
     vect_d.push_back(Data(10001, 20002, "Calculus", "Chengyun Li", 85));
-//    cout<<yxq.AskForGrade(vect_d,20000)<<endl;
-//    cout<<ln.AskForGrade(vect_d,10000)<<endl;
-//    yxq.GetReport(vect_d);
     vector<Student> vect_stu;
     vector<Course> vect_cou;
     vector<Teacher> vect_tea;
@@ -39,36 +36,10 @@ int main() {
     vect_cou.push_back(dm);
     vect_tea.push_back(zwm);
     vect_adm.push_back(wxq);
-//    InputData(vect_d, vect_stu, vect_cou);
-//    DelData(vect_d);
-//    SetData(vect_d,vect_stu,vect_cou);
-//    cl.GetReport(vect_d);
-//    GetReport(vect_d,vect_stu,vect_cou,20000);
-//    GetReport(vect_d, vect_stu, vect_cou, 10003);
-//    for (const Data &a: vect_d) {
-//        cout << a.Student::GetId() << " " << a.Course::GetId() << " " << a.Student::GetGrade() << endl;
-//    }
-//    NewStudent(20005,"Zhixiao Zhang",vect_stu);
-//    SetStuId(20005,20004,vect_stu);
-//    SetStuName(20004,"Zhixiao Chang",vect_stu);
-//    ResetStuPasswd(20000,vect_stu);
-//    DelStu(20004,vect_stu);
-//    NewCourse(10010, "Data Structure", vect_cou);
-//    SetCouId(10010, 10004, vect_cou);
-//    SetCouName(10004, "Data Structure and Algorithm", vect_cou);
-//    DelCou(10001, vect_cou);
-//    for(const Student &a:vect_stu){
-//        cout<<a.GetId()<<"  "<<a.GetName()<<"   "<<a.GetPasswd()<<endl;
-//    }
-//    for (const Course &a: vect_cou) {
-//        cout << a.GetId() << "  " << a.GetName() << endl;
-//    }
-
     cout << "Welcome to Student Performance Management System!" << endl;
     int ID;
     while (!Flg4) {
         menu(ID, vect_cou, vect_stu, vect_tea, vect_adm, vect_d);
     }
-    //cout<<atoi("12234")<<endl<<atoi("ab122ab2327shbu328e382b3e")<<endl; change "ASCLL" to "INTEGER"
     return 0;
 }

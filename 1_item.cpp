@@ -30,9 +30,6 @@ double Item::GetGrade() const {
 }
 
 const char *Item::GetName() const {
-//    int len = strlen(Name);
-//    char *res = new char[len + 1];
-//    strcpy(res, Name);
     return this->Name;
 }
 
