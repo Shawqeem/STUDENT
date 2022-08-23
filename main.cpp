@@ -41,5 +41,6 @@ int main() {
     while (!Flg4) {
         menu(ID, vect_cou, vect_stu, vect_tea, vect_adm, vect_d);
     }
+
     return 0;
 }
