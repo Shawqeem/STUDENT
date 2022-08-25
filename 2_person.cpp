@@ -19,7 +19,3 @@ const char *Person::GetPasswd() const {
 void Person::SetPasswd(const char *NewPasswd) {
     strcpy(this->Passwd, NewPasswd);
 }
-//
-// Created by 10048 on 2022/7/24.
-//
-

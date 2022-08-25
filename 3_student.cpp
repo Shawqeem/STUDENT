@@ -71,7 +71,3 @@ int WhereIsStu(const vector<Student> &vect, int id) {
     }
     return -1;
 }
-//
-// Created by 10048 on 2022/7/25.
-//
-

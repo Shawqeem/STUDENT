@@ -46,7 +46,7 @@ double Item::SetGrade(double NewGrade) {
 const char *Item::SetName(const char *NewName) {
     if (Name != NULL) {
         delete[]Name;
-        Name=NULL;
+        Name = NULL;
     }
     int len = strlen(NewName);
     Name = new char[len + 1];
@@ -60,7 +60,3 @@ bool Item::DelName() {
         return true;
     } else return false;
 }
-
-//
-// Created by 10048 on 2022/7/18.
-//

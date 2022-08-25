@@ -145,17 +145,11 @@ const char *GetStuName(int id, const vector<Student> &vect) {
 }
 
 const char *GetStuName2(int id, const vector<Student> &vect) {
-//    if (id / 10000 != 2) {
-//        cout << "Invalid Student ID! Valid ID eg: 20000~29999" << endl;
-//        return "";
-//    }
     for (const Student &a: vect) {
         if (a.GetId() == id) {
-//            cout << "Student Name (" << id << ") : " << a.GetName()<< endl;
             return a.GetName();
         }
     }
-//    cout << "Student Name (" << id << ") Not Found!" << endl;
     return "";
 }
 
@@ -175,17 +169,11 @@ const char *GetCouName(int id, const vector<Course> &vect) {
 }
 
 const char *GetCouName2(int id, const vector<Course> &vect) {
-//    if (id / 10000 != 1) {
-//        cout << "Invalid Course ID! Valid ID Example: 10000~19999" << endl;
-//        return "";
-//    }
     for (const Course &a: vect) {
         if (a.GetId() == id) {
-//            cout << "Course Name (" << id << ") : " << a.GetName()<< endl;
             return a.GetName();
         }
     }
-//    cout << "Course Name (" << id << ") Not Found!" << endl;
     return "";
 }
 
@@ -199,8 +187,3 @@ int WhereIsAdm(const vector<Admin> &vect, int id) {
     }
     return -1;
 }
-
-//
-// Created by 10048 on 2022/7/22.
-//
-

@@ -22,8 +22,3 @@ int WhereIsTea(const vector<Teacher> &vect, int id) {
     }
     return -1;
 }
-
-//
-// Created by 10048 on 2022/7/22.
-//
-

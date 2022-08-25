@@ -2,6 +2,19 @@
 
 bool Flg1, Flg2, Flg3, Flg4;
 
+void DealWithCharBeforeInt() {
+    while (!(isdigit(cin.peek())))
+        cin.get();
+    //deal with other characters input before "the integer Input"
+}
+
+void DealWithCharBehindInt(){
+    while(cin.peek()!='\n')
+        cin.get();
+    cin.get();
+    //deal with other characters input behind "the integer Input"
+}
+
 bool LogIn(int id, const vector<Student> &vstu, const vector<Teacher> &vtea, const vector<Admin> &vadm) {
     switch (id / 10000) {
         int i;
@@ -102,6 +115,7 @@ void menu(int &ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher> 
     if (!Flg1 && !Flg2 && !Flg3 && !Flg4) {
         cout << "Please Input your ID! (Student:20000~29999, Teacher:30000~39999, Administrator:40000~49999)" << endl;
         cout << "Zero for Exit!" << endl;
+        DealWithCharBeforeInt();
         cin >> ID;
         if (!ID) {
             Flg4 = true;
@@ -123,8 +137,3 @@ void menu(int &ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher> 
         return;
     }
 }
-
-//
-// Created by 10048 on 2022/8/11.
-//
-

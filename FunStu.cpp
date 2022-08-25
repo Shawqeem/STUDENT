@@ -7,6 +7,7 @@ void FunStu(int ID, const vector<Course> &vcou, vector<Student> &vstu, const vec
          << endl;
     cout << "1: Change Password\n2: Look for Grade\n3: Get Report\n4: Print Report to a File\n5: Exit to Main Menu\n";
     int num;
+    DealWithCharBeforeInt();
     cin >> num;
     switch (num) {
         case 5: {
@@ -15,12 +16,20 @@ void FunStu(int ID, const vector<Course> &vcou, vector<Student> &vstu, const vec
         }
         case 1: {
             int i = WhereIsStu(vstu, ID);
-            char old_passwd[MaxPasswdLen], new_passwd[MaxPasswdLen];
+            char old_passwd[MaxPasswdLen + 1], new_passwd[MaxPasswdLen + 1];
             cout << "Please Input your Old Password!" << endl;
             cin >> old_passwd;
             if (strcmp(old_passwd, (vstu.begin() + i)->GetPasswd()) == 0) {
-                cout << "Please Input your New Password!" << endl;
+                cout << "Please Input your New Password! Password Length: between " << MinPasswdLen << " and "
+                     << MaxPasswdLen << "!" << endl;
                 cin >> new_passwd;
+                DealWithCharBehindInt();
+                while (strlen(new_passwd) < MinPasswdLen) {
+                    cout << "Password Length Invalid! Please Input your New Password! Password Length: between "
+                         << MinPasswdLen << " and " << MaxPasswdLen << "!" << endl;
+                    cin >> new_passwd;
+                    DealWithCharBehindInt();
+                }
                 (vstu.begin() + i)->SetPasswd(new_passwd);
                 cout << "New Password Set!" << endl;
             } else {
@@ -32,15 +41,15 @@ void FunStu(int ID, const vector<Course> &vcou, vector<Student> &vstu, const vec
         case 2: {
             int i, id_cou;
             cout << "Please Input the ID of Course!" << endl;
+            DealWithCharBeforeInt();
             cin >> id_cou;
             if (IdCheck_cou(id_cou, vcou)) {
                 i = WhereIsData(vdat, ID, id_cou);
-                if(i+1){
+                if (i + 1) {
                     cout << "Grade of Course (" << id_cou << "): " << ((vdat.begin() + i))->Student::GetGrade() << endl
                          << endl;
-                }
-                else{
-                    cout<<"Grade of Course ("<<id_cou<<") Not Found!"<<endl<<endl;
+                } else {
+                    cout << "Grade of Course (" << id_cou << ") Not Found!" << endl << endl;
                 }
             } else {
                 cout << endl;
@@ -72,8 +81,3 @@ void FunStu(int ID, const vector<Course> &vcou, vector<Student> &vstu, const vec
         }
     }
 }
-
-//
-// Created by 10048 on 2022/8/18.
-//
-

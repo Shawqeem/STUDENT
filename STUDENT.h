@@ -8,7 +8,8 @@
 #include <cstdlib>
 
 #define MaxPasswdLen 16
-#define MaxNameLen 10
+#define MaxNameLen 20
+#define MinPasswdLen 6
 
 using namespace std;
 
@@ -177,8 +178,6 @@ bool less_cou(const Data &dat1, const Data &dat2);
 
 bool less_stu(const Data &dat1, const Data &dat2);
 
-bool IsNumber(char *a, int len);
-
 bool LogIn(int id, const vector<Student> &vstu, const vector<Teacher> &vtea, const vector<Admin> &adm);
 
 bool IdCheck_stu(int id, const vector<Student> &vstu);
@@ -195,10 +194,12 @@ void FunTea(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
 
 void FunStu(int ID, const vector<Course> &vcou, vector<Student> &vstu, const vector<Data> &vdat);
 
-void SetAvgGrade(int id_s,int id_c,int po_s, int po_c, const vector<Data> &vdat, vector<Course> &vcou, vector<Student> &vstu);
-//
-// Created by 10048 on 2022/7/18.
-//
+void SetAvgGrade(int id_s, int id_c, int po_s, int po_c, const vector<Data> &vdat, vector<Course> &vcou,
+                 vector<Student> &vstu);
+
+void DealWithCharBeforeInt();
+
+void DealWithCharBehindInt();
 
 #ifndef STUDENT_STUDENT_H
 #define STUDENT_STUDENT_H

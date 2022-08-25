@@ -12,6 +12,7 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
     cout
             << "12: Print Course List\n13: Print Student List to a File\n14: Print Course List to a File\n15: Exit to Main Menu\n";
     int num;
+    DealWithCharBeforeInt();
     cin >> num;
     switch (num) {
         int ID1;
@@ -21,7 +22,9 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         }
         case 1: {
             cout << "Please Input the ID of Student!" << endl;
+            DealWithCharBeforeInt();
             cin >> ID1;
+            DealWithCharBehindInt();
             if (ID1 / 10000 != 2) {
                 cout << "Invalid Student ID! Valid ID eg: 20000~29999" << endl << endl;
                 break;
@@ -31,9 +34,6 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
             } else {
                 cout << "Please Input the name of Student! Maximum of Name Length: " << MaxNameLen << endl;
                 char Name1[MaxNameLen + 1];
-                while(cin.peek()!='\n')
-                    cin.get();
-                cin.get();//deal with other characters input behind "ID1"
                 cin.getline(Name1, MaxNameLen + 1);
                 cin.clear();
                 fflush(stdin);
@@ -44,7 +44,9 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         }
         case 2: {
             cout << "Please Input the ID of Course!" << endl;
+            DealWithCharBeforeInt();
             cin >> ID1;
+            DealWithCharBehindInt();
             if (ID1 / 10000 != 1) {
                 cout << "Invalid Course ID! Valid ID eg: 10000~19999" << endl << endl;
                 break;
@@ -54,9 +56,6 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
             } else {
                 cout << "Please Input the name of Course! Maximum of Name Length: " << MaxNameLen << endl;
                 char Name1[MaxNameLen + 1];
-                while(cin.peek()!='\n')
-                    cin.get();
-                cin.get();//deal with other characters input behind "ID1"
                 cin.getline(Name1, MaxNameLen + 1);
                 cin.clear();
                 fflush(stdin);
@@ -67,10 +66,12 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         }
         case 3: {
             cout << "Please Input the ID of Student!" << endl;
+            DealWithCharBeforeInt();
             cin >> ID1;
             if (IdCheck_stu(ID1, vstu)) {
                 cout << "Please Input the New ID of Student!" << endl;
                 int ID2;
+                DealWithCharBeforeInt();
                 cin >> ID2;
                 if (ID2 / 10000 != 2) {
                     cout << "Invalid Student ID! Valid ID eg: 20000~29999" << endl << endl;
@@ -94,13 +95,12 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         }
         case 4: {
             cout << "Please Input the ID of Student!" << endl;
+            DealWithCharBeforeInt();
             cin >> ID1;
+            DealWithCharBehindInt();
             if (IdCheck_stu(ID1, vstu)) {
                 cout << "Please Input the New Name of Student! Maximum of Name Length: " << MaxNameLen << endl;
                 char Name2[MaxNameLen + 1];
-                while(cin.peek()!='\n')
-                    cin.get();
-                cin.get();//deal with other characters input behind "ID1"
                 cin.getline(Name2, MaxNameLen + 1);
                 cin.clear();
                 fflush(stdin);
@@ -111,11 +111,6 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
                         a.Student::SetName(Name2);
                     }
                 }
-//                for (const Data &a: vdat) {
-//                    cout << a.Student::GetId() << "     " << setiosflags(ios::left) << setw(20) << a.Student::GetName()
-//                         << a.Course::GetId() << "    " << setw(20) << a.Course::GetName() << "     "
-//                         << a.Student::GetGrade() << endl << endl;
-//                }
                 break;
             } else {
                 cout << endl;
@@ -124,6 +119,7 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         }
         case 5: {
             cout << "Please Input the ID of Student!" << endl;
+            DealWithCharBeforeInt();
             cin >> ID1;
             if (IdCheck_stu(ID1, vstu)) {
                 ResetStuPasswd(ID1, vstu);
@@ -136,6 +132,7 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         }
         case 6: {
             cout << "Please Input the ID of Student!" << endl;
+            DealWithCharBeforeInt();
             cin >> ID1;
             if (IdCheck_stu(ID1, vstu)) {
                 cout << "Password of Student(" << ID1 << "): " << GetStuPasswd(ID1, vstu) << endl << endl;
@@ -147,10 +144,12 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         }
         case 7: {
             cout << "Please Input the ID of Course!" << endl;
+            DealWithCharBeforeInt();
             cin >> ID1;
             if (IdCheck_cou(ID1, vcou)) {
                 cout << "Please Input the New ID of Course!" << endl;
                 int ID2;
+                DealWithCharBeforeInt();
                 cin >> ID2;
                 if (ID2 / 10000 != 1) {
                     cout << "Invalid Course ID! Valid ID eg: 10000~19999" << endl << endl;
@@ -166,11 +165,6 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
                         a.Course::SetId(ID2);
                     }
                 }
-//                for (const Data &a: vdat) {
-//                    cout << a.Student::GetId() << "     " << setiosflags(ios::left) << setw(20) << a.Student::GetName()
-//                         << a.Course::GetId() << "    " << setw(20) << a.Course::GetName() << "     "
-//                         << a.Student::GetGrade() << endl << endl;
-//                }
                 break;
             } else {
                 cout << endl;
@@ -179,13 +173,12 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         }
         case 8: {
             cout << "Please Input the ID of Course!" << endl;
+            DealWithCharBeforeInt();
             cin >> ID1;
+            DealWithCharBehindInt();
             if (IdCheck_cou(ID1, vcou)) {
                 cout << "Please Input the New Name of Course! Maximum of Name Length: " << MaxNameLen << endl;
                 char Name2[MaxNameLen + 1];
-                while(cin.peek()!='\n')
-                    cin.get();
-                cin.get();//deal with other characters input behind "ID1"
                 cin.getline(Name2, MaxNameLen + 1);
                 cin.clear();
                 fflush(stdin);
@@ -196,11 +189,6 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
                         a.Course::SetName(Name2);
                     }
                 }
-//                for (const Data &a: vdat) {
-//                    cout << a.Student::GetId() << "     " << setiosflags(ios::left) << setw(20) << a.Student::GetName()
-//                         << a.Course::GetId() << "    " << setw(20) << a.Course::GetName() << "     "
-//                         << a.Student::GetGrade() << endl << endl;
-//                }
                 break;
             } else {
                 cout << endl;
@@ -209,6 +197,7 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         }
         case 9: {
             cout << "Please Input the ID of Student!" << endl;
+            DealWithCharBeforeInt();
             cin >> ID1;
             if (IdCheck_stu(ID1, vstu)) {
                 DelStu(ID1, vstu);
@@ -232,11 +221,6 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
                         }
                     }
                 }
-//                for (const Data &a: vdat) {
-//                    cout << a.Student::GetId() << "     " << setiosflags(ios::left) << setw(20) << a.Student::GetName()
-//                         << a.Course::GetId() << "    " << setw(20) << a.Course::GetName() << "     "
-//                         << a.Student::GetGrade() << endl << endl;
-//                }
                 break;
             } else {
                 cout << endl;
@@ -245,6 +229,7 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         }
         case 10: {
             cout << "Please Input the ID of Course!" << endl;
+            DealWithCharBeforeInt();
             cin >> ID1;
             if (IdCheck_cou(ID1, vcou)) {
                 DelCou(ID1, vcou);
@@ -268,11 +253,6 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
                         }
                     }
                 }
-//                for (const Data &a: vdat) {
-//                    cout << a.Student::GetId() << "     " << setiosflags(ios::left) << setw(20) << a.Student::GetName()
-//                         << a.Course::GetId() << "    " << setw(20) << a.Course::GetName() << "     "
-//                         << a.Student::GetGrade() << endl << endl;
-//                }
                 break;
             } else {
                 cout << endl;
@@ -325,7 +305,3 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         }
     }
 }
-//
-// Created by 10048 on 2022/8/18.
-//
-

@@ -1,12 +1,5 @@
 #include "STUDENT.h"
 
-//bool IsNumber(char *a, int len) {
-//    for (int i = 0; i < len; ++i) {
-//        if (a[i] < '0' || a[i] > '9')
-//            return false;
-//    }
-//    return true;
-//}
 Data::Data(int id_cou, int id_stu, const char *name_cou, const char *name_stu, double gra) : Student(id_stu, name_stu,
                                                                                                      "000000"),
                                                                                              Course(id_cou, name_cou) {
@@ -50,7 +43,12 @@ bool InputData(vector<Data> &vect, vector<Student> &vstu, vector<Course> &vcou) 
     int id_stu = 0, id_cou = 0;
     int po_stu = 0, po_cou = 0;
     double gra;
-    cin >> id_stu >> id_cou >> gra;
+    DealWithCharBeforeInt();
+    cin >> id_stu;
+    DealWithCharBeforeInt();
+    cin >> id_cou;
+    DealWithCharBeforeInt();
+    cin >> gra;
     if (id_stu / 10000 != 2) {
         cout << "Invalid Student ID! Valid ID eg: 20000~29999" << endl;
         cout << "Data Input Fail!" << endl << endl;
@@ -126,7 +124,10 @@ bool DelData(vector<Data> &vect, vector<Student> &vstu, vector<Course> &vcou) {
     cout << "Please Input the Data to Be Deleted! Example: IdOfStudent(eg:20000~29999) IdOfCourse(eg:10000~19999)"
          << endl;
     int id_stu = 0, id_cou = 0, i = 0;
-    cin >> id_stu >> id_cou;
+    DealWithCharBeforeInt();
+    cin >> id_stu;
+    DealWithCharBeforeInt();
+    cin >> id_cou;
     int po_stu, po_cou;
     i = WhereIsData(vect, id_stu, id_cou);
     if (i + 1) {
@@ -160,7 +161,10 @@ bool SetData(vector<Data> &vect, vector<Student> &vstu, vector<Course> &vcou) {
     cout << "Please Input the Data to Be Changed! Example: IdOfStudent(eg:20000~29999) IdOfCourse(eg:10000~19999)"
          << endl;
     int id_stu_old = 0, id_cou_old = 0, i = 0;
-    cin >> id_stu_old >> id_cou_old;
+    DealWithCharBeforeInt();
+    cin >> id_stu_old;
+    DealWithCharBeforeInt();
+    cin >> id_cou_old;
     i = WhereIsData(vect, id_stu_old, id_cou_old);
     if (i + 1) {
         cout << "Data (" << id_stu_old << ", " << id_cou_old << ") Found!" << endl;
@@ -169,7 +173,12 @@ bool SetData(vector<Data> &vect, vector<Student> &vstu, vector<Course> &vcou) {
                 << endl;
         int id_stu_new = 0, id_cou_new = 0;
         double gra;
-        cin >> id_stu_new >> id_cou_new >> gra;
+        DealWithCharBeforeInt();
+        cin >> id_stu_new;
+        DealWithCharBeforeInt();
+        cin >> id_cou_new;
+        DealWithCharBeforeInt();
+        cin >> gra;
         if (id_stu_new / 10000 != 2) {
             cout << "Invalid Student ID! Valid ID eg: 20000~29999" << endl;
             cout << "Data Input Fail!" << endl << endl;
@@ -277,8 +286,3 @@ void GetReport(vector<Student> &vstu) {
     cout << "Report of All Students Printed!" << endl;
 }
 //Get the report of all students' average grade, and save the result to "report_AvgGrade.txt"
-
-//
-// Created by 10048 on 2022/7/24.
-//
-

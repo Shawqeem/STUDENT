@@ -12,6 +12,7 @@ void FunTea(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
     cout
             << "11: Print Report of a Student to a File\n12: Print Report of a Course to a File\n13: Print Report of All Students to a File\n14: Exit to Main Menu\n";
     int num;
+    DealWithCharBeforeInt();
     cin >> num;
     switch (num) {
         int id_stu, id_cou;
@@ -35,7 +36,10 @@ void FunTea(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
             cout
                     << "Please Input the Data to Be Sought! Example: IdOfStudent(eg:20000~29999) IdOfCourse(eg:10000~19999)"
                     << endl;
-            cin >> id_stu >> id_cou;
+            DealWithCharBeforeInt();
+            cin >> id_stu;
+            DealWithCharBeforeInt();
+            cin >> id_cou;
             int i;
             i = WhereIsData(vdat, id_stu, id_cou);
             if (i + 1) {
@@ -51,6 +55,7 @@ void FunTea(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         case 5: {
             int i = 0;
             cout << "Please Input the ID of Student!" << endl;
+            DealWithCharBeforeInt();
             cin >> id_stu;
             if (IdCheck_stu(id_stu, vstu)) {
                 i = WhereIsStu(vstu, id_stu);
@@ -64,6 +69,7 @@ void FunTea(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         case 6: {
             int i = 0;
             cout << "Please Input the ID of Course!" << endl;
+            DealWithCharBeforeInt();
             cin >> id_cou;
             if (IdCheck_cou(id_cou, vcou)) {
                 i = WhereIsCou(vcou, id_cou);
@@ -88,6 +94,7 @@ void FunTea(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         case 8: {
             int i = 0;
             cout << "Please Input the ID of Student!" << endl;
+            DealWithCharBeforeInt();
             cin >> id_stu;
             if (IdCheck_stu(id_stu, vstu)) {
                 i = WhereIsStu(vstu, id_stu);
@@ -109,6 +116,7 @@ void FunTea(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         case 9: {
             int i = 0;
             cout << "Please Input the ID of Course!" << endl;
+            DealWithCharBeforeInt();
             cin >> id_cou;
             if (IdCheck_cou(id_cou, vcou)) {
                 i = WhereIsCou(vcou, id_cou);
@@ -143,6 +151,7 @@ void FunTea(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         }
         case 11: {
             cout << "Please Input the ID of Student!" << endl;
+            DealWithCharBeforeInt();
             cin >> id_stu;
             if (IdCheck_stu(id_stu, vstu)) {
                 GetReport(vdat, vstu, vcou, id_stu);
@@ -154,6 +163,7 @@ void FunTea(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         }
         case 12: {
             cout << "Please Input the ID of Course!" << endl;
+            DealWithCharBeforeInt();
             cin >> id_cou;
             if (IdCheck_cou(id_cou, vcou)) {
                 GetReport(vdat, vstu, vcou, id_cou);
@@ -174,7 +184,3 @@ void FunTea(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         }
     }
 }
-//
-// Created by 10048 on 2022/8/18.
-//
-
