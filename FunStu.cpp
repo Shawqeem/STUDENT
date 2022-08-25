@@ -5,13 +5,30 @@ extern bool Flg1, Flg2, Flg3, Flg4;
 void FunStu(int ID, const vector<Course> &vcou, vector<Student> &vstu, const vector<Data> &vdat) {
     cout << "You are Student (" << ID << "). Please Input a number between 1 and 5 to choose a module!"
          << endl;
-    cout << "1: Change Password\n2: Look for Grade\n3: Get Report\n4: Print Report to a File\n5: Exit to Main Menu\n";
+    cout << "1: Change Password\n2: Look for Grade\n3: Get Report\n4: Print Report to a File\n";
+    cout << "5: Save New Password to a File\n6: Exit to Main Menu\n";
     int num;
     DealWithCharBeforeInt();
     cin >> num;
     switch (num) {
-        case 5: {
+        case 6: {
             Flg1 = false;
+            char a;
+            bool flg = true;
+            while (flg) {
+                cout << "Would you like to Save New Password to a File? Input 'y' for YES while 'n' for NOT"
+                     << endl;
+                cin >> a;
+                if (a == 'y') {
+                    SaveData(2, vstu, vcou, vdat);
+                    flg = false;
+                } else if (a == 'n') {
+                    flg = false;
+                } else {
+                    cout << "Instruction Error!" << endl << endl;
+                }
+                DealWithCharBehindInt();
+            }
             break;
         }
         case 1: {
@@ -73,6 +90,10 @@ void FunStu(int ID, const vector<Course> &vcou, vector<Student> &vstu, const vec
         case 4: {
             GetReport(vdat, vstu, vcou, ID, true);
             cout << endl;
+            break;
+        }
+        case 5: {
+            SaveData(2, vstu, vcou, vdat);
             break;
         }
         default: {

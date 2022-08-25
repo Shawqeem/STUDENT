@@ -54,15 +54,20 @@ void Student::GetReport(const vector<Data> &vect, bool flg) const {
     strcat(FileName, this->GetName());
     strcat(FileName, ".txt");
     ofstream of(FileName, ios_base::out);
-    of << "Report " << this->GetName() << " (" << this->GetId() << ") as Follow" << endl;
-    for (const Data &a: res) {
-        of << a.Course::GetId() << "        " << setiosflags(ios::left) << setw(20) << a.Course::GetName() << "    "
-           << a.Student::GetGrade() << endl;
+    if (of.is_open()) {
+        of << "Report " << this->GetName() << " (" << this->GetId() << ") as Follow" << endl;
+        for (const Data &a: res) {
+            of << a.Course::GetId() << "        " << setiosflags(ios::left) << setw(20) << a.Course::GetName() << "    "
+               << a.Student::GetGrade() << endl;
+        }
+        of << "Average Grade: " << setprecision(5) << sct / cnt << endl;
+        of.close();
+        delete[]FileName;
+        cout << "Report " << this->GetName() << " (" << this->GetId() << ") Printed!" << endl;
+    } else {
+        delete[]FileName;
+        cout << "File Open Error!" << endl << endl;
     }
-    of << "Average Grade: " << setprecision(5) << sct / cnt << endl;
-    of.close();
-    delete[]FileName;
-    cout << "Report " << this->GetName() << " (" << this->GetId() << ") Printed!" << endl;
 }
 
 int WhereIsStu(const vector<Student> &vect, int id) {

@@ -196,9 +196,17 @@ void FunStu(int ID, const vector<Course> &vcou, vector<Student> &vstu, const vec
 void SetAvgGrade(int id_s, int id_c, int po_s, int po_c, const vector<Data> &vdat, vector<Course> &vcou,
                  vector<Student> &vstu);
 
+void SetAvgGradeOfAll(const vector<Data> &vdat, vector<Course> &vcou, vector<Student> &vstu);
+
 void DealWithCharBeforeInt();
 
 void DealWithCharBehindInt();
+
+void SaveData(int flg, const vector<Student> &vstu, const vector<Course> &vcou, const vector<Data> &vdat);
+//flg: 1->Course, 2->Student, 3->Data
+
+void Restore(int flg, vector<Student> &vstu, vector<Course> &vcou, vector<Data> &vdat);
+//flg: 1->Course, 2->Student, 3->Data
 
 #ifndef STUDENT_STUDENT_H
 #define STUDENT_STUDENT_H

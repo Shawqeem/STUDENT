@@ -50,15 +50,21 @@ void Course::GetReport(const vector<Data> &vect) const {
     strcat(FileName, this->GetName());
     strcat(FileName, ".txt");
     ofstream of(FileName, ios_base::out);
-    of << "Report " << this->GetName() << " (" << this->GetId() << ") as Follow" << endl;
-    for (const Data &a: res) {
-        of << a.Student::GetId() << "        " << setiosflags(ios::left) << setw(20) << a.Student::GetName() << "    "
-           << a.Student::GetGrade() << endl;
+    if(of.is_open()){
+        of << "Report " << this->GetName() << " (" << this->GetId() << ") as Follow" << endl;
+        for (const Data &a: res) {
+            of << a.Student::GetId() << "        " << setiosflags(ios::left) << setw(20) << a.Student::GetName() << "    "
+               << a.Student::GetGrade() << endl;
+        }
+        of << "Average Grade: " << setprecision(5) << sct / cnt << endl;
+        of.close();
+        delete[]FileName;
+        cout << "Report " << this->GetName() << " (" << this->GetId() << ") Printed!" << endl;
     }
-    of << "Average Grade: " << setprecision(5) << sct / cnt << endl;
-    of.close();
-    delete[]FileName;
-    cout << "Report " << this->GetName() << " (" << this->GetId() << ") Printed!" << endl;
+    else{
+        delete[]FileName;
+        cout << "File Open Error!" << endl << endl;
+    }
 }
 //Get the report of the course, and save the result to "report_/NameOfCourse/.txt"
 

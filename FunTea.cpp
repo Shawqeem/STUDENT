@@ -10,14 +10,30 @@ void FunTea(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
             << "5: Get Average Grade of a Student\n6: Get Average Grade of a Course\n7: Get Average Grade of All Students\n";
     cout << "8: Get Report of a Student\n9: Get Report of a Course\n10: Get Report of All Students\n";
     cout
-            << "11: Print Report of a Student to a File\n12: Print Report of a Course to a File\n13: Print Report of All Students to a File\n14: Exit to Main Menu\n";
+            << "11: Print Report of a Student to a File\n12: Print Report of a Course to a File\n13: Print Report of All Students to a File\n";
+    cout << "14: Save Data of Grades to a File\n15: Exit to Main Menu\n";
     int num;
     DealWithCharBeforeInt();
     cin >> num;
     switch (num) {
         int id_stu, id_cou;
-        case 14: {
+        case 15: {
             Flg2 = false;
+            char a;
+            bool flg = true;
+            while (flg) {
+                cout << "Would you like to Save Data of Grades to a File? Input 'y' for YES while 'n' for NOT" << endl;
+                cin >> a;
+                if (a == 'y') {
+                    SaveData(3, vstu, vcou, vdat);
+                    flg = false;
+                } else if (a == 'n') {
+                    flg = false;
+                } else {
+                    cout << "Instruction Error!" << endl << endl;
+                }
+                DealWithCharBehindInt();
+            }
             break;
         }
         case 1: {
@@ -176,6 +192,10 @@ void FunTea(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         case 13: {
             GetReport(vstu);
             cout << endl;
+            break;
+        }
+        case 14: {
+            SaveData(3, vstu, vcou, vdat);
             break;
         }
         default: {

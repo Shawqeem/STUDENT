@@ -9,15 +9,32 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
     cout << "1: New Student\n2: New Course\n3: Set Student ID\n4: Set Student Name\n";
     cout << "5: Reset Student Password\n6: Look for Student Password\n7: Set Course ID\n";
     cout << "8: Set Course Name\n9: Delete Student\n10: Delete Course\n11: Print Student List\n";
-    cout
-            << "12: Print Course List\n13: Print Student List to a File\n14: Print Course List to a File\n15: Exit to Main Menu\n";
+    cout << "12: Print Course List\n13: Print Student List to a File\n14: Print Course List to a File\n";
+    cout << "15: Import All Data from Files (Will Cover Old Data)\n16: Save Data of Students and Courses to Files\n17: Exit to Main Menu\n";
     int num;
     DealWithCharBeforeInt();
     cin >> num;
     switch (num) {
         int ID1;
-        case 15: {
+        case 17: {
             Flg3 = false;
+            char a;
+            bool flg = true;
+            while (flg) {
+                cout << "Would you like to Save Data of Students and Courses to Files? Input 'y' for YES while 'n' for NOT"
+                     << endl;
+                cin >> a;
+                if (a == 'y') {
+                    SaveData(1, vstu, vcou, vdat);
+                    SaveData(2, vstu, vcou, vdat);
+                    flg = false;
+                } else if (a == 'n') {
+                    flg = false;
+                } else {
+                    cout << "Instruction Error!" << endl << endl;
+                }
+                DealWithCharBehindInt();
+            }
             break;
         }
         case 1: {
@@ -277,26 +294,47 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
             char *FileName = new char[100];
             strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\report\\administrator\\list_student.txt");
             ofstream of(FileName, ios_base::out);
-            of << "Student List is as Follow" << endl;
-            for (const Student &a: vstu) {
-                of << a.GetId() << "        " << setiosflags(ios::left) << setw(20) << a.GetName() << endl;
+            if (of.is_open()) {
+                of << "Student List is as Follow" << endl;
+                for (const Student &a: vstu) {
+                    of << a.GetId() << "        " << setiosflags(ios::left) << setw(20) << a.GetName() << endl;
+                }
+                of.close();
+                delete[]FileName;
+                cout << "Student List Printed!" << endl;
+            } else {
+                delete[]FileName;
+                cout << "File Open Error!" << endl << endl;
             }
-            of.close();
-            delete[]FileName;
-            cout << "Student List Printed!" << endl;
             break;
         }
         case 14: {
             char *FileName = new char[100];
             strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\report\\administrator\\list_course.txt");
             ofstream of(FileName, ios_base::out);
-            of << "Course List is as Follow" << endl;
-            for (const Course &a: vcou) {
-                of << a.GetId() << "        " << setiosflags(ios::left) << setw(20) << a.GetName() << endl;
+            if (of.is_open()) {
+                of << "Course List is as Follow" << endl;
+                for (const Course &a: vcou) {
+                    of << a.GetId() << "        " << setiosflags(ios::left) << setw(20) << a.GetName() << endl;
+                }
+                of.close();
+                delete[]FileName;
+                cout << "Course List Printed!" << endl;
+            } else {
+                delete[]FileName;
+                cout << "File Open Error!" << endl << endl;
             }
-            of.close();
-            delete[]FileName;
-            cout << "Course List Printed!" << endl;
+            break;
+        }
+        case 15:{
+            Restore(1,vstu,vcou,vdat);
+            Restore(2,vstu,vcou,vdat);
+            Restore(3,vstu,vcou,vdat);
+            break;
+        }
+        case 16:{
+            SaveData(1, vstu, vcou, vdat);
+            SaveData(2, vstu, vcou, vdat);
             break;
         }
         default: {
