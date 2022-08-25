@@ -44,7 +44,7 @@ void Student::GetReport(const vector<Data> &vect, bool flg) const {
         cout << "No Data!" << endl;
         return;
     }
-//    sort(res.begin(), res.end(), less_cou);
+    sort(res.begin(), res.end(), less_cou);
     char *FileName = new char[strlen(this->GetName()) + 100];
     if (flg) {
         strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\report\\student\\report_");

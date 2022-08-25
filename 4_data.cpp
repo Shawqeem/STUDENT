@@ -270,7 +270,7 @@ bool less_stu2(const Student &stu1, const Student &stu2) {
 void GetReport(vector<Student> &vstu) {
     int cnt = 0;
     double sct = 0;
-//    sort(vstu.begin(), vstu.end(), less_stu2);
+    sort(vstu.begin(), vstu.end(), less_stu2);
     char *FileName = new char[100];
     strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\report\\teacher\\report_all_students.txt");
     ofstream of(FileName, ios_base::out);

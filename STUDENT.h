@@ -33,12 +33,10 @@ public:
 
     const char *SetName(const char *NewName);
 
-    bool DelName();
-
 private:
     int ID; //from X0000 to X9999, X: 1->lesson, 2->student, 3->teacher, 4->admin
     double Grade; //to save the average grade
-    char *Name = NULL;
+    char Name[MaxNameLen + 1] = "";
 };
 
 class Student;
