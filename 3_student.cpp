@@ -29,7 +29,7 @@ bool less_cou(const Data &dat1, const Data &dat2) {
     } else return false;
 }
 
-void Student::GetReport(const vector<Data> &vect) const {
+void Student::GetReport(const vector<Data> &vect, bool flg) const {
     int cnt = 0;
     double sct = 0;
     vector<Data> res;
@@ -45,8 +45,12 @@ void Student::GetReport(const vector<Data> &vect) const {
         return;
     }
 //    sort(res.begin(), res.end(), less_cou);
-    char *FileName = new char[strlen(this->GetName()) + 15];
-    strcpy(FileName, "report_");
+    char *FileName = new char[strlen(this->GetName()) + 100];
+    if (flg) {
+        strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\report\\student\\report_");
+    } else {
+        strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\report\\teacher\\report_");
+    }
     strcat(FileName, this->GetName());
     strcat(FileName, ".txt");
     ofstream of(FileName, ios_base::out);

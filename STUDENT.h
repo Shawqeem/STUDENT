@@ -87,8 +87,9 @@ public:
 
     double AskForGrade(const vector<Data> &vect, int CouId) const;
 
-    void GetReport(const vector<Data> &vect) const;
+    void GetReport(const vector<Data> &vect, bool flg) const;
     //Get the student's own report, and save the result to "report_/NameOfStudent/.txt"
+    //flg is used to situate the file
 };
 
 int WhereIsStu(const vector<Student> &vect, int id);
@@ -166,7 +167,7 @@ bool SetData(vector<Data> &vect, vector<Student> &vstu, vector<Course> &vcou);
 double AskForGrade(const vector<Data> &vect, int CouId, int StuId);
 
 void GetReport(const vector<Data> &vect, const vector<Student> &vstu, const vector<Course> &vcou,
-               int Id);//Get the Student's own report, and save the result to "report_/NameOfStudent/.txt"
+               int Id, bool flg);//Get the Student's own report, and save the result to "report_/NameOfStudent/.txt"
 //Get the report of the typical course, and save the result to "report_/NameOfCourse/.txt"
 
 bool less_stu2(const Student &stu1, const Student &stu2);

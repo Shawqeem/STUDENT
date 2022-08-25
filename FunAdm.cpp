@@ -274,8 +274,8 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
             break;
         }
         case 13: {
-            char *FileName = new char[20];
-            strcpy(FileName, "student_list.txt");
+            char *FileName = new char[100];
+            strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\report\\administrator\\list_student.txt");
             ofstream of(FileName, ios_base::out);
             of << "Student List is as Follow" << endl;
             for (const Student &a: vstu) {
@@ -287,8 +287,8 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
             break;
         }
         case 14: {
-            char *FileName = new char[20];
-            strcpy(FileName, "course_list.txt");
+            char *FileName = new char[100];
+            strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\report\\administrator\\list_course.txt");
             ofstream of(FileName, ios_base::out);
             of << "Course List is as Follow" << endl;
             for (const Course &a: vcou) {

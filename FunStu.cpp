@@ -71,7 +71,7 @@ void FunStu(int ID, const vector<Course> &vcou, vector<Student> &vstu, const vec
             break;
         }
         case 4: {
-            GetReport(vdat, vstu, vcou, ID);
+            GetReport(vdat, vstu, vcou, ID, true);
             cout << endl;
             break;
         }

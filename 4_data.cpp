@@ -235,7 +235,7 @@ double AskForGrade(const vector<Data> &vect, int CouId, int StuId) {
     return -1;
 }
 
-void GetReport(const vector<Data> &vect, const vector<Student> &vstu, const vector<Course> &vcou, int Id) {
+void GetReport(const vector<Data> &vect, const vector<Student> &vstu, const vector<Course> &vcou, int Id, bool flg) {
     if (vstu.empty()) {
         cout << "No Data!" << endl;
         return;
@@ -250,7 +250,7 @@ void GetReport(const vector<Data> &vect, const vector<Student> &vstu, const vect
     } else if (Id / 10000 == 2) {
         for (const Student &st: vstu) {
             if (st.GetId() == Id) {
-                st.GetReport(vect);
+                st.GetReport(vect, flg);
                 break;
             }
         }
@@ -271,8 +271,8 @@ void GetReport(vector<Student> &vstu) {
     int cnt = 0;
     double sct = 0;
 //    sort(vstu.begin(), vstu.end(), less_stu2);
-    char *FileName = new char[24];
-    strcpy(FileName, "report_all_students.txt");
+    char *FileName = new char[100];
+    strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\report\\teacher\\report_all_students.txt");
     ofstream of(FileName, ios_base::out);
     of << "Report of All Students is as Follow" << endl;
     for (const Student &a: vstu) {

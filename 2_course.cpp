@@ -45,8 +45,8 @@ void Course::GetReport(const vector<Data> &vect) const {
         return;
     }
 //    sort(res.begin(), res.end(), less_stu);
-    char *FileName = new char[strlen(this->GetName()) + 15];
-    strcpy(FileName, "report_");
+    char *FileName = new char[strlen(this->GetName()) + 100];
+    strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\report\\teacher\\report_");
     strcat(FileName, this->GetName());
     strcat(FileName, ".txt");
     ofstream of(FileName, ios_base::out);

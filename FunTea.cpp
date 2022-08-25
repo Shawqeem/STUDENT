@@ -154,7 +154,7 @@ void FunTea(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
             DealWithCharBeforeInt();
             cin >> id_stu;
             if (IdCheck_stu(id_stu, vstu)) {
-                GetReport(vdat, vstu, vcou, id_stu);
+                GetReport(vdat, vstu, vcou, id_stu, false);
                 cout << endl;
             } else {
                 cout << endl;
@@ -166,7 +166,7 @@ void FunTea(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
             DealWithCharBeforeInt();
             cin >> id_cou;
             if (IdCheck_cou(id_cou, vcou)) {
-                GetReport(vdat, vstu, vcou, id_cou);
+                GetReport(vdat, vstu, vcou, id_cou, true);
                 cout << endl;
             } else {
                 cout << endl;
