@@ -25,6 +25,8 @@ void FunTea(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
                 cout << "Would you like to Save Data of Grades to a File? Input 'y' for YES while 'n' for NOT" << endl;
                 cin >> a;
                 if (a == 'y') {
+                    SaveData(1, vstu, vcou, vdat);
+                    SaveData(2, vstu, vcou, vdat);
                     SaveData(3, vstu, vcou, vdat);
                     flg = false;
                 } else if (a == 'n') {
@@ -195,6 +197,8 @@ void FunTea(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
             break;
         }
         case 14: {
+            SaveData(1, vstu, vcou, vdat);
+            SaveData(2, vstu, vcou, vdat);
             SaveData(3, vstu, vcou, vdat);
             break;
         }

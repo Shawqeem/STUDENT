@@ -292,7 +292,7 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         }
         case 13: {
             char *FileName = new char[100];
-            strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\report\\administrator\\list_student.txt");
+            strcpy(FileName, "..\\report\\administrator\\list_student.txt");
             ofstream of(FileName, ios_base::out);
             if (of.is_open()) {
                 of << "Student List is as Follow" << endl;
@@ -310,7 +310,7 @@ void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher>
         }
         case 14: {
             char *FileName = new char[100];
-            strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\report\\administrator\\list_course.txt");
+            strcpy(FileName, "..\\report\\administrator\\list_course.txt");
             ofstream of(FileName, ios_base::out);
             if (of.is_open()) {
                 of << "Course List is as Follow" << endl;

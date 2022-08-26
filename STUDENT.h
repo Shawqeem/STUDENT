@@ -8,7 +8,7 @@
 #include <cstdlib>
 
 #define MaxPasswdLen 16
-#define MaxNameLen 20
+#define MaxNameLen 35
 #define MinPasswdLen 6
 
 using namespace std;
@@ -195,8 +195,6 @@ void FunStu(int ID, const vector<Course> &vcou, vector<Student> &vstu, const vec
 
 void SetAvgGrade(int id_s, int id_c, int po_s, int po_c, const vector<Data> &vdat, vector<Course> &vcou,
                  vector<Student> &vstu);
-
-void SetAvgGradeOfAll(const vector<Data> &vdat, vector<Course> &vcou, vector<Student> &vstu);
 
 void DealWithCharBeforeInt();
 

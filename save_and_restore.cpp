@@ -7,7 +7,7 @@ void SaveData(int flg, const vector<Student> &vstu, const vector<Course> &vcou, 
     char *FileName = new char[100];
     int length, TotalSize;
     if (flg == 1) {
-        strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\data\\data_course.dat");
+        strcpy(FileName, "..\\data\\data_course.dat");
         ofstream of(FileName, ios_base::out | ios_base::binary);
         if (of.is_open()) {
             of.write((char *) &check_code, sizeof(int));
@@ -23,7 +23,7 @@ void SaveData(int flg, const vector<Student> &vstu, const vector<Course> &vcou, 
             cout << "File Open Error!" << endl << endl;
         }
     } else if (flg == 2) {
-        strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\data\\data_student.dat");
+        strcpy(FileName, "..\\data\\data_student.dat");
         ofstream of(FileName, ios_base::out | ios_base::binary);
         if (of.is_open()) {
             of.write((char *) &check_code, sizeof(int));
@@ -39,7 +39,7 @@ void SaveData(int flg, const vector<Student> &vstu, const vector<Course> &vcou, 
             cout << "File Open Error!" << endl << endl;
         }
     } else if (flg == 3) {
-        strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\data\\data_grade.dat");
+        strcpy(FileName, "..\\data\\data_grade.dat");
         ofstream of(FileName, ios_base::out | ios_base::binary);
         if (of.is_open()) {
             of.write((char *) &check_code, sizeof(int));
@@ -65,7 +65,7 @@ void Restore(int flg, vector<Student> &vstu, vector<Course> &vcou, vector<Data> 
     int Tmpcheck_code;
     int length, TotalSize;
     if (flg == 1) {
-        strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\data\\data_course.dat");
+        strcpy(FileName, "..\\data\\data_course.dat");
         ifstream ifile(FileName, ios_base::in | ios_base::binary);
         if (ifile.is_open()) {
             ifile.read((char *) &Tmpcheck_code, sizeof(int));
@@ -94,7 +94,7 @@ void Restore(int flg, vector<Student> &vstu, vector<Course> &vcou, vector<Data> 
             cout << "File Open Error!" << endl << endl;
         }
     } else if (flg == 2) {
-        strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\data\\data_student.dat");
+        strcpy(FileName, "..\\data\\data_student.dat");
         ifstream ifile(FileName, ios_base::in | ios_base::binary);
         if (ifile.is_open()) {
             ifile.read((char *) &Tmpcheck_code, sizeof(int));
@@ -123,7 +123,7 @@ void Restore(int flg, vector<Student> &vstu, vector<Course> &vcou, vector<Data> 
             cout << "File Open Error!" << endl << endl;
         }
     } else if (flg == 3) {
-        strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\data\\data_grade.dat");
+        strcpy(FileName, "..\\data\\data_grade.dat");
         ifstream ifile(FileName, ios_base::in | ios_base::binary);
         if (ifile.is_open()) {
             ifile.read((char *) &Tmpcheck_code, sizeof(int));
@@ -148,7 +148,6 @@ void Restore(int flg, vector<Student> &vstu, vector<Course> &vcou, vector<Data> 
             }
             ifile.close();
             cout << "Data of Grade Restored Successfully!" << endl << endl;
-            SetAvgGradeOfAll(vdat, vcou, vstu);
         } else {
             cout << "File Open Error!" << endl << endl;
         }

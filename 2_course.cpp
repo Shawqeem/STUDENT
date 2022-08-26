@@ -5,7 +5,7 @@ Course::Course(int id, const char *name) : Item(id, name) {
 }
 
 Course::Course(const Course &cou) : Item(cou.GetId(), cou.GetName()) {
-
+    this->SetGrade(cou.GetGrade());
 }
 
 Course::~Course() {
@@ -46,7 +46,7 @@ void Course::GetReport(const vector<Data> &vect) const {
     }
     sort(res.begin(), res.end(), less_stu);
     char *FileName = new char[strlen(this->GetName()) + 100];
-    strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\report\\teacher\\report_");
+    strcpy(FileName, "..\\report\\teacher\\report_");
     strcat(FileName, this->GetName());
     strcat(FileName, ".txt");
     ofstream of(FileName, ios_base::out);

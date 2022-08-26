@@ -5,7 +5,7 @@ Student::Student(int id, const char *name, const char *passwd) : Person(id, name
 }
 
 Student::Student(const Student &stu) : Person(stu.GetId(), stu.GetName(), stu.GetPasswd()) {
-
+    this->SetGrade(stu.GetGrade());
 }
 
 Student::~Student() {
@@ -47,9 +47,9 @@ void Student::GetReport(const vector<Data> &vect, bool flg) const {
     sort(res.begin(), res.end(), less_cou);
     char *FileName = new char[strlen(this->GetName()) + 100];
     if (flg) {
-        strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\report\\student\\report_");
+        strcpy(FileName, "..\\report\\student\\report_");
     } else {
-        strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\report\\teacher\\report_");
+        strcpy(FileName, "..\\report\\teacher\\report_");
     }
     strcat(FileName, this->GetName());
     strcat(FileName, ".txt");

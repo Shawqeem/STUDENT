@@ -35,33 +35,6 @@ void SetAvgGrade(int id_s, int id_c, int po_s, int po_c, const vector<Data> &vda
     (vcou.begin() + po_c)->SetGrade(gra_cou);
 }
 
-void SetAvgGradeOfAll(const vector<Data> &vdat, vector<Course> &vcou, vector<Student> &vstu) {
-    double sct;
-    int cnt;
-    for (Student &a: vstu) {
-        sct = 0;
-        cnt = 0;
-        for (const Data &dat: vdat) {
-            if (dat.Student::GetId() == a.GetId()) {
-                sct += dat.Student::GetGrade();
-                ++cnt;
-            }
-        }
-        a.SetGrade(sct / cnt);
-    }
-    for (Course &a: vcou) {
-        sct = 0;
-        cnt = 0;
-        for (const Data &dat: vdat) {
-            if (dat.Course::GetId() == a.GetId()) {
-                sct += dat.Student::GetGrade();
-                ++cnt;
-            }
-        }
-        a.SetGrade(sct / cnt);
-    }
-}
-
 bool InputData(vector<Data> &vect, vector<Student> &vstu, vector<Course> &vcou) {
     //NumOfStu(eg:20000) NumOfCou(eg:10000) Grade(eg:100)
     //eg:20000 10000 100
@@ -299,7 +272,7 @@ void GetReport(vector<Student> &vstu) {
     double sct = 0;
     sort(vstu.begin(), vstu.end(), less_stu2);
     char *FileName = new char[100];
-    strcpy(FileName, "D:\\1_summer\\c++\\STUDENT\\report\\teacher\\report_all_students.txt");
+    strcpy(FileName, "..\\report\\teacher\\report_all_students.txt");
     ofstream of(FileName, ios_base::out);
     if (of.is_open()) {
         of << "Report of All Students is as Follow" << endl;
