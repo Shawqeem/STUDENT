@@ -3,7 +3,7 @@
 extern bool Flg1, Flg2, Flg3, Flg4;
 
 void FunTea(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher> &vtea, vector<Data> &vdat) {
-    cout << "You are Teacher (" << ID << "). Please Input a number between 1 and 14 to choose a module!"
+    cout << "You are Teacher (" << ID << "). Please Input a number between 1 and 15 to choose a module!"
          << endl;
     cout << "1: Input Grade\n2: Set Grade\n3: Delete Grade\n4: Look for Grade\n";
     cout

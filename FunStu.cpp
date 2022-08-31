@@ -3,7 +3,7 @@
 extern bool Flg1, Flg2, Flg3, Flg4;
 
 void FunStu(int ID, const vector<Course> &vcou, vector<Student> &vstu, const vector<Data> &vdat) {
-    cout << "You are Student (" << ID << "). Please Input a number between 1 and 5 to choose a module!"
+    cout << "You are Student (" << ID << "). Please Input a number between 1 and 6 to choose a module!"
          << endl;
     cout << "1: Change Password\n2: Look for Grade\n3: Get Report\n4: Print Report to a File\n";
     cout << "5: Save New Password to a File\n6: Exit to Main Menu\n";

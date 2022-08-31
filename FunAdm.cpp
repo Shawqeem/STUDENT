@@ -4,7 +4,7 @@ extern bool Flg1, Flg2, Flg3, Flg4;
 
 void FunAdm(int ID, vector<Course> &vcou, vector<Student> &vstu, vector<Teacher> &vtea, vector<Admin> &vadm,
             vector<Data> &vdat) {
-    cout << "You are Administrator (" << ID << "). Please Input a number between 1 and 15 to choose a module!"
+    cout << "You are Administrator (" << ID << "). Please Input a number between 1 and 17 to choose a module!"
          << endl;
     cout << "1: New Student\n2: New Course\n3: Set Student ID\n4: Set Student Name\n";
     cout << "5: Reset Student Password\n6: Look for Student Password\n7: Set Course ID\n";
